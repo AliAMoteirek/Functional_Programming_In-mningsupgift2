@@ -59,13 +59,8 @@ class Tomteland {
 
 fun main() {
 
-    //Exempel på anrop till den rekursiva funktionen getUnderlings,
-    // här är tanken att hitta Gladers underlydande
-    //listan fylls på successivt när vi rekurserar
-
     val test = Tomteland()
     var list: MutableList<String> = mutableListOf()
     println(test.getUnderlings("Glader", list))
-
 
 }
