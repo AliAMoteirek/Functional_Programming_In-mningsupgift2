@@ -5,11 +5,11 @@ import java.io.FileNotFoundException
 import java.lang.Exception
 
 class Tomteland {
-    private val mapList = mutableMapOf<String, List<String>>()
 
-    private fun generateAMapOfTomtar() {
+    private fun generateAMapOfTomtar():MutableMap<String, List<String>> {
+        val mapList = mutableMapOf<String, List<String>>()
         try {
-            File("file.txt").useLines { lines ->
+            File("dataFile.txt").useLines { lines ->
                 lines.groupBy {
                     val list = it.split(", ")
                     mapList.put(list[0], list.subList(1, list.size))
@@ -23,11 +23,11 @@ class Tomteland {
             println("Something went wrong")
             e.printStackTrace()
         }
+        return mapList
     }
 
     fun getUnderlings(currentName: String, res: MutableList<String>): List<String> {
-        generateAMapOfTomtar()
-        mapList.forEach { (key, value) ->
+        generateAMapOfTomtar().forEach { (key, value) ->
             value.filter { key == currentName }.forEach {
                 res += it
                 getUnderlings(it, res)
