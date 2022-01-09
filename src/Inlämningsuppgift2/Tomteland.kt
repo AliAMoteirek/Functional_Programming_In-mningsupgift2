@@ -7,7 +7,7 @@ import java.lang.Exception
 class Tomteland {
     private val mapList = mutableMapOf<String, List<String>>()
 
-    private fun constructMapOfTomtar() {
+    private fun generateAMapOfTomtar() {
         try {
             File("file.txt").useLines { lines ->
                 lines.groupBy {
@@ -26,7 +26,7 @@ class Tomteland {
     }
 
     fun getUnderlings(currentName: String, res: MutableList<String>): List<String> {
-        constructMapOfTomtar()
+        generateAMapOfTomtar()
         mapList.forEach { (key, value) ->
             value.filter { key == currentName }.forEach {
                 res += it
