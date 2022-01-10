@@ -6,7 +6,7 @@ import java.lang.Exception
 
 class Tomteland {
 
-    private fun generateAMapOfTomtar():MutableMap<String, List<String>> {
+    private fun generateAMapOfTomtar(): Map<String, List<String>> {
         val mapList = mutableMapOf<String, List<String>>()
         try {
             File("dataFile.txt").useLines { lines ->
